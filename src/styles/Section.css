@@ -1,0 +1,16 @@
+.sectionContainer {
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 30px;
+    width: 60vh;
+}
+
+button {
+    border-radius: 2px;
+}
+
+input {
+    border-radius: 6px;
+    height: 2rem;
+    margin: 10px;
+}

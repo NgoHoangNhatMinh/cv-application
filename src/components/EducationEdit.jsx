@@ -1,25 +1,18 @@
 import '../styles/Section.css';
 
-export default function EducationEdit() {
-    const section = <h2>Education</h2>
-
-    const form = <form action="">
-        <input type="text" id="school" placeholder='School'/>
-        <br />
-
-        <input type="text" id="course" placeholder='Course'/>
-        <br />
-
-        <label htmlFor="study-date">Date of Study:</label>
-        <input type="date" id="study-date" placeholder='Date of Study'/>
-        <br /><br />
-
-        <button type="Submit">Submit</button>
-    </form>
+export default function GeneralEdit({handleEdit, person, handleDetailChange}) {
+    const detailsList = person.map((detail, i) => 3 <= i && i <= 5 ? <li key={detail.id}>
+        <input value={Object.values(detail)[0]} onChange={
+            (e) => handleDetailChange(detail.id, e)
+        } />
+    </li> : null);
 
     return <div className="sectionContainer">
-        {section}
-        {form}
+        <h2>Education</h2>
+        <ul>
+            {detailsList}
+        </ul>
         <br />
+        <button onClick={handleEdit}>Submit</button>
     </div>
 }

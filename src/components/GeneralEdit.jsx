@@ -1,22 +1,18 @@
 import '../styles/Section.css';
 
-export default function GeneralEdit() {
-    const section = <h2>General Information</h2>
-
-    const form = <form action="">
-        <input type="text" id="name" placeholder='Name'/>
-        <br />
-
-        <input type="email" id="email" placeholder='Email'/>
-        <br />
-
-        <input type="number" id="phone" placeholder='Phone Number'/>
-        <br /><br />
-    </form>
+export default function GeneralEdit({handleEdit, person, handleDetailChange}) {
+    const detailsList = person.map((detail, i) => 0 <= i && i <= 2 ? <li key={detail.id}>
+        <input value={Object.values(detail)[0]} onChange={
+            (e) => handleDetailChange(detail.id, e)
+        } />
+    </li> : null);
 
     return <div className="sectionContainer">
-        {section}
-        {form}
+        <h2>General</h2>
+        <ul>
+            {detailsList}
+        </ul>
         <br />
+        <button onClick={handleEdit}>Submit</button>
     </div>
 }

@@ -1,4 +1,4 @@
-export default function Experience({person}) {
+export default function Experience({handleEdit, person}) {
     return <>
         <h2>Experience</h2>
         <ul>
@@ -7,5 +7,6 @@ export default function Experience({person}) {
             <li>{person[8].startDate}</li>
             <li>{person[9].endDate}</li>
         </ul>
+        <button onClick={handleEdit}>Edit</button>
     </>;
 }
